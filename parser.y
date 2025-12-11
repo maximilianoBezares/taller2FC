@@ -158,28 +158,28 @@ query:
 
 statement:
       select_stmt SEMICOLON {
-        printf("\n=== AST (SELECT) ===\n");
+        printf("AST (SELECT)");
         printAST($1, 0, "RAIZ");
         freeAST($1);
         if (current_table) { free(current_table); current_table = NULL; }
         printf(">> ");
     }
     | insert_stmt SEMICOLON {
-        printf("\n=== AST (INSERT) ===\n");
+        printf("AST (INSERT)");
         printAST($1, 0, "RAIZ");
         freeAST($1);
         if (current_table) { free(current_table); current_table = NULL; }
         printf(">> ");
     }
     | update_stmt SEMICOLON {
-        printf("\n=== AST (UPDATE) ===\n");
+        printf("AST (UPDATE)");
         printAST($1, 0, "RAIZ");
         freeAST($1);
         if (current_table) { free(current_table); current_table = NULL; }
         printf(">> ");
     }
     | delete_stmt SEMICOLON {
-        printf("\n=== AST (DELETE) ===\n");
+        printf("AST (DELETE)");
         printAST($1, 0, "RAIZ");
         freeAST($1);
         if (current_table) { free(current_table); current_table = NULL; }
@@ -260,23 +260,23 @@ update_stmt:
     ;
 
 pair_list:
-      IDENTIFIER EQ STRING { 
-          $$ = createNode("=", createLeaf($1), createLeaf($3)); free($3); 
+      IDENTIFIER EQ STRING {
+          $$ = createNode("=", createLeaf($1), createLeaf($3)); free($3);
       }
-    | IDENTIFIER EQ INTEGER { 
-          $$ = createNode("=", createLeaf($1), createLeafInt($3)); 
+    | IDENTIFIER EQ INTEGER {
+          $$ = createNode("=", createLeaf($1), createLeafInt($3));
       }
-    | IDENTIFIER EQ DECIMAL { 
-          $$ = createNode("=", createLeaf($1), createLeaf($3)); free($3); 
+    | IDENTIFIER EQ DECIMAL {
+          $$ = createNode("=", createLeaf($1), createLeaf($3)); free($3);
       }
-    | pair_list COMMA IDENTIFIER EQ STRING { 
-          $$ = createNode(",", $1, createNode("=", createLeaf($3), createLeaf($5))); free($5); 
+    | pair_list COMMA IDENTIFIER EQ STRING {
+          $$ = createNode(",", $1, createNode("=", createLeaf($3), createLeaf($5))); free($5);
       }
-    | pair_list COMMA IDENTIFIER EQ INTEGER { 
-          $$ = createNode(",", $1, createNode("=", createLeaf($3), createLeafInt($5))); 
+    | pair_list COMMA IDENTIFIER EQ INTEGER {
+          $$ = createNode(",", $1, createNode("=", createLeaf($3), createLeafInt($5)));
       }
-    | pair_list COMMA IDENTIFIER EQ DECIMAL { 
-          $$ = createNode(",", $1, createNode("=", createLeaf($3), createLeaf($5))); free($5); 
+    | pair_list COMMA IDENTIFIER EQ DECIMAL {
+          $$ = createNode(",", $1, createNode("=", createLeaf($3), createLeaf($5))); free($5);
       }
     ;
 
