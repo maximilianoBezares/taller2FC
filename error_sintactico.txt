@@ -1,0 +1,3 @@
+-- Error Sintactico: Uso de palabras no soportadas (INTO/VALUES)
+-- Tu gramatica no definio tokens para INTO ni VALUES, esto debe dar syntax error
+INSERT INTO alumnus VALUES ("Pedro");

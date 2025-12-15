@@ -1,0 +1,3 @@
+-- Prueba basica: Seleccion simple
+-- Tabla: alumnus (columnas validas: nombre, edad, promedio)
+SELECT nombre, edad FROM alumnus WHERE edad >= 18;

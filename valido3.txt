@@ -1,0 +1,2 @@
+-- Prueba de insensibilidad a mayusculas (delete) y logica AND/NOT
+delete FROM alumnus WHERE edad < 20 AND NOT promedio = 7.0;

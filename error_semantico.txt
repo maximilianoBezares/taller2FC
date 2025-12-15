@@ -1,0 +1,3 @@
+-- Error Semantico: La columna 'direccion' NO existe en la tabla 'alumnus'
+-- Esto debe disparar el error semantico programado en C
+SELECT nombre, direccion FROM alumnus;

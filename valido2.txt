@@ -1,0 +1,5 @@
+-- INSERT sin 'INTO' ni 'VALUES' segun tu parser.y linea 313
+INSERT alumnus (nombre, promedio) ("Juan", 5.5);
+
+-- UPDATE sin 'SET' segun tu parser.y linea 338
+UPDATE cursos creditos=4 WHERE codigo=101;
